@@ -1,0 +1,77 @@
+<div class="min-h-full">
+
+
+  <div class="py-10">
+
+    <main>
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <!-- Replace with your content -->
+        <div class="px-4 sm:px-6 lg:px-8">
+          <div class="sm:flex sm:items-center">
+
+            <div class="sm:flex-auto">
+              <h1 class="text-xl font-semibold text-gray-900">Employments</h1>
+              <p class="mt-2 text-sm text-gray-700">A List of all the employments for the individual name,employee,Start and end date</p>
+              <div class="mt-4 flex items-center  justify-start ">
+                <div class="mr-4 w-1/3">
+                  <input  (ngModelChange)="onChange($event)" [(ngModel)]="search" id="search" name="search" type="text" autocomplete="email" required
+                         placeholder="Search By ID card Number"
+                         class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+
+                </div>
+                <div class="space-x-4">
+                  <button [disabled]="!search"
+                          [class.bg-indigo-400]="!search"
+                          type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" (click)="callSearch()">Search</button>
+                  <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" (click)="downloadFile(employees)" >Download</button>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="mt-8 flex flex-col">
+            <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-300">
+                    <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        id
+                      </th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Full Name</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Employee Name</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Start Date</th>
+                      <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">End Date </th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 bg-white">
+                    <tr *ngFor="let employee of employees ">
+                      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                        {{employee?.id}}
+                      </td>
+                      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{employee?.employer_name}}</td>
+                      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{employee.member_name}}</td>
+                      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{employee.start_date | date :'medium'}}</td>
+                      <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm  sm:pr-6">
+                      {{employee.end_date | date :'medium'}}
+                      </td>
+                    </tr>
+
+                    <!-- More people... -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /End replace -->
+      </div>
+    </main>
+  </div>
+</div>

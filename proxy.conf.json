@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+      "target": "https://housing-api.stag.mpao.mv/",
+      "secure": false,
+      "changeOrigin": false,
+      "logLevel": "debug"
+    }
+}
+
